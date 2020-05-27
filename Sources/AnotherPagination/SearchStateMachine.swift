@@ -79,10 +79,10 @@ public class SearchStateMachine<Element, Query, Failure: Error> {
     private var stateCancellable: AnyCancellable?
     
     @Published
-    private var _state: SearchStateMachineState<Element, Failure> = .uninitialized
+    private var _state: SearchStateMachineState<Element, Query, Failure> = .uninitialized
     
     /// The state of the machine can be observed to change the UI according the current state
-    public var state: Published<SearchStateMachineState<Element, Failure>>.Publisher {
+    public var state: Published<SearchStateMachineState<Element, Query, Failure>>.Publisher {
         return $_state
     }
     

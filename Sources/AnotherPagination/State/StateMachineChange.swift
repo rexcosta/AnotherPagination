@@ -33,6 +33,6 @@ struct StateMachineChange<Element, Query, Failure: Error> {
     let to: BaseState<Element, Query, Failure>
     
     /// The new state for the state machine
-    let newState: SearchStateMachineState<Element, Failure>
+    let newState: SearchStateMachineState<Element, Query, Failure>
     
 }

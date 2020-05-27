@@ -39,7 +39,7 @@ import Foundation
 /// * `loadingMoreData` -> `errorLoadingMoreData`
 /// * `loadingMoreData` -> `data`
 ///
-public enum SearchStateMachineState<Element, Failure> {
+public enum SearchStateMachineState<Element, Query, Failure> {
     
     /// The state machine didn't received any action and did process anything
     case uninitialized
@@ -57,7 +57,7 @@ public enum SearchStateMachineState<Element, Failure> {
     case errorLoadingMoreData(_ error: Failure)
     
     /// The state machine don't have any data
-    case noData
+    case noData(query: Query?)
     
     /// The state machine received another page
     case data(_ data: [Element])

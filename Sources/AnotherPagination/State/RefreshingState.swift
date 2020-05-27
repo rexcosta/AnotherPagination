@@ -65,7 +65,7 @@ class RefreshingState<Element, Query, Failure: Error>: BaseState<Element, Query,
             
             guard !dataResult.results.isEmpty else {
                 let newState = NoDataState<Element, Query, Failure>(from: self)
-                change(to: newState, with: .noData)
+                change(to: newState, with: .noData(query: query))
                 return
             }
             

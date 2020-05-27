@@ -108,7 +108,11 @@ class BaseState<Element, Query, Failure: Error>: CustomDebugStringConvertible {
 // MARK: - Helpers
 extension BaseState {
     
-    func change(to state: BaseState, with newState: SearchStateMachineState<Element, Failure>, completion: (() -> Void)? = nil) {
+    func change(
+        to state: BaseState,
+        with newState: SearchStateMachineState<Element, Query, Failure>,
+        completion: (() -> Void)? = nil
+    ) {
        let changeInfo = StateMachineChange(
             from: self,
             to: state,
